@@ -1,5 +1,5 @@
 //
-//  LoginVC.swift
+//  SignupVC.swift
 //  Smack
 //
 //  Created by Hazem Mohamed Magdy on 11/26/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class SignupVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +16,12 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func createAccountBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: TO_SIGN_UP, sender: nil)
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func clostBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+
     /*
     // MARK: - Navigation
 

@@ -9,3 +9,4 @@
 import Foundation
 
 let TO_LOGIN = "toLoginVC"
+let TO_SIGN_UP = "toSignup"

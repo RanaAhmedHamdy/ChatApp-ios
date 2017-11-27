@@ -449,6 +449,7 @@
                         <outlet property="passwordTxt" destination="HAG-To-Rct" id="lxu-lh-PQc"/>
                         <outlet property="userImage" destination="x0i-UE-Pnm" id="MtO-Gt-04a"/>
                         <outlet property="usernameTxt" destination="4tg-Tk-47M" id="Vcw-k7-HRh"/>
+                        <segue destination="1Io-Zs-XZT" kind="unwind" identifier="unwindToChannelVC" unwindAction="unwindtoChannelVCWithSegue:" id="d4J-Dn-leo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WT0-Z2-Jcg" userLabel="First Responder" sceneMemberID="firstResponder"/>

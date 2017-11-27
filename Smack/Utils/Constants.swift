@@ -13,7 +13,7 @@ typealias completionHandler = (_ Success: Bool) -> ()
 //segues
 let TO_LOGIN = "toLoginVC"
 let TO_SIGN_UP = "toSignup"
-let UNWIND_TO_CHANNEL_VC = "unwindToChannelvc"
+let UNWIND_TO_CHANNEL_VC = "unwindToChannelVC"
 
 //user defaults
 let LOGGED_IN_KEY = "loggedIn"
@@ -24,3 +24,4 @@ let AUTH_TOKEN = "token"
 let BASE_URL = "http://localhost:3005/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
 let URL_LOGIN = "\(BASE_URL)account/login"
+let URL_ADD_USER = "\(BASE_URL)user/add"

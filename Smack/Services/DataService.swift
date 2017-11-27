@@ -24,4 +24,8 @@ class DataService {
         self.userName = userName
         self.userEmail = userEmail
     }
+    
+    func setAvatarName(avatarName: String) {
+        self.avatarName = avatarName
+    }
 }

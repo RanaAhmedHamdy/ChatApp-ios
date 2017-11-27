@@ -23,6 +23,14 @@ class SignupVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if DataService.instance.avatarName != "" {
+            userImage.image = UIImage(named: DataService.instance.avatarName)
+            self.avatarName = DataService.instance.avatarName
+        }
+    }
+    
     @IBAction func createAccountBtnPressed(_ sender: Any) {
         guard let name = usernameTxt.text, usernameTxt.text != "" else {return}
         guard let email = emailTxt.text, emailTxt.text != "" else {return}

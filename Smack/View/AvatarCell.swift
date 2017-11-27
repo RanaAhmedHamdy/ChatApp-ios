@@ -17,6 +17,16 @@ class AvatarCell: UICollectionViewCell {
         setUpView()
     }
     
+    func configureCell(index: Int, type: AvatarType) {
+        if type == .Dark {
+            avatarImage.image = UIImage(named: "dark\(index)")
+            self.layer.backgroundColor = UIColor.lightGray.cgColor
+        } else {
+            avatarImage.image = UIImage(named: "light\(index)")
+            self.layer.backgroundColor = UIColor.gray.cgColor
+        }
+    }
+    
     func setUpView() {
         layer.backgroundColor = UIColor.lightGray.cgColor
         layer.cornerRadius = 10

@@ -10,26 +10,36 @@ import UIKit
 
 class SignupVC: UIViewController {
 
+    @IBOutlet weak var usernameTxt: UITextField!
+    @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var userImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func createAccountBtnPressed(_ sender: Any) {
+        guard let email = emailTxt.text, emailTxt.text != "" else {return}
+        guard let pass = passwordTxt.text, passwordTxt.text != "" else {return}
+        
+        AuthService.instance.registerUser(email: email, password: pass) { (success) in
+            if(success) {
+                print("registered user!")
+                
+                AuthService.instance.login(email: email, password: pass, completion: { (successful_login) in
+                    if(successful_login) {
+                        print("logged in ", AuthService.instance.authToken)
+                    }
+                })
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func chooseAvatarBtnPressed(_ sender: Any) {
     }
-    */
-
+    
+    @IBAction func generateBGColorBtnPressed(_ sender: Any) {
+    }
 }

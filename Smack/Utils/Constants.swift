@@ -8,5 +8,19 @@
 
 import Foundation
 
+typealias completionHandler = (_ Success: Bool) -> ()
+
+//segues
 let TO_LOGIN = "toLoginVC"
 let TO_SIGN_UP = "toSignup"
+let UNWIND_TO_CHANNEL_VC = "unwindToChannelvc"
+
+//user defaults
+let LOGGED_IN_KEY = "loggedIn"
+let USER_EMAIL = "userEmail"
+let AUTH_TOKEN = "token"
+
+//url constants
+let BASE_URL = "http://localhost:3005/v1/"
+let URL_REGISTER = "\(BASE_URL)account/register"
+let URL_LOGIN = "\(BASE_URL)account/login"

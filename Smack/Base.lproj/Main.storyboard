@@ -320,6 +320,7 @@
                                 <state key="normal" image="closeButton"/>
                                 <connections>
                                     <action selector="clostBtnPressed:" destination="RIc-F2-BpI" eventType="touchUpInside" id="FDq-UT-bcH"/>
+                                    <segue destination="1Io-Zs-XZT" kind="unwind" unwindAction="unwindtoChannelVCWithSegue:" id="vzS-RA-EoY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvs-C9-Did">
@@ -397,14 +398,36 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFx-FV-lLR">
                                 <rect key="frame" x="138" y="440" width="99" height="30"/>
                                 <state key="normal" title="Choose avatar"/>
+                                <connections>
+                                    <action selector="chooseAvatarBtnPressed:" destination="EgS-iW-2IE" eventType="touchUpInside" id="g9m-pL-WeP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BF2-yN-QP0">
                                 <rect key="frame" x="94" y="475" width="188" height="30"/>
                                 <state key="normal" title="Generate background color"/>
+                                <connections>
+                                    <action selector="generateBGColorBtnPressed:" destination="EgS-iW-2IE" eventType="touchUpInside" id="QBG-77-BKe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ta8-si-YZF">
+                                <rect key="frame" x="62" y="554" width="250" height="50"/>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="7Ej-R6-vKh"/>
+                                    <constraint firstAttribute="height" constant="50" id="xrE-5m-Hdh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createAccountBtnPressed:" destination="EgS-iW-2IE" eventType="touchUpInside" id="7ti-4h-vgR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ta8-si-YZF" firstAttribute="top" secondItem="BF2-yN-QP0" secondAttribute="bottom" constant="49" id="11V-Fd-aMR"/>
                             <constraint firstItem="ZFx-FV-lLR" firstAttribute="centerX" secondItem="bsw-Lp-cgW" secondAttribute="centerX" id="G2A-4V-mp9"/>
                             <constraint firstItem="IVG-RX-0hV" firstAttribute="top" secondItem="ejq-XV-4jg" secondAttribute="top" constant="8" id="HQq-aM-Zue"/>
                             <constraint firstItem="Jvs-C9-Did" firstAttribute="centerX" secondItem="bsw-Lp-cgW" secondAttribute="centerX" id="KfJ-Y6-7m6"/>
@@ -415,19 +438,23 @@
                             <constraint firstItem="Jvs-C9-Did" firstAttribute="top" secondItem="ejq-XV-4jg" secondAttribute="top" constant="60" id="afG-KF-3Jy"/>
                             <constraint firstItem="ZFx-FV-lLR" firstAttribute="top" secondItem="x0i-UE-Pnm" secondAttribute="bottom" constant="20" id="ghI-qG-STt"/>
                             <constraint firstItem="BF2-yN-QP0" firstAttribute="centerX" secondItem="bsw-Lp-cgW" secondAttribute="centerX" id="pvF-JH-8Wd"/>
+                            <constraint firstItem="ta8-si-YZF" firstAttribute="centerX" secondItem="bsw-Lp-cgW" secondAttribute="centerX" id="qG6-Pu-OGO"/>
                             <constraint firstItem="BF2-yN-QP0" firstAttribute="top" secondItem="ZFx-FV-lLR" secondAttribute="bottom" constant="5" id="qeN-Zb-gUm"/>
                             <constraint firstItem="ejq-XV-4jg" firstAttribute="trailing" secondItem="IVG-RX-0hV" secondAttribute="trailing" constant="16" id="xeF-s0-dDC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ejq-XV-4jg"/>
                     </view>
                     <connections>
-                        <segue destination="1Io-Zs-XZT" kind="unwind" unwindAction="unwindtoChannelVCWithSegue:" id="zVi-LY-4vW"/>
+                        <outlet property="emailTxt" destination="o51-Zu-onz" id="BuL-IM-J05"/>
+                        <outlet property="passwordTxt" destination="HAG-To-Rct" id="lxu-lh-PQc"/>
+                        <outlet property="userImage" destination="x0i-UE-Pnm" id="MtO-Gt-04a"/>
+                        <outlet property="usernameTxt" destination="4tg-Tk-47M" id="Vcw-k7-HRh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WT0-Z2-Jcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1Io-Zs-XZT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2863" y="-88"/>
+            <point key="canvasLocation" x="2994" y="-88"/>
         </scene>
     </scenes>
     <resources>

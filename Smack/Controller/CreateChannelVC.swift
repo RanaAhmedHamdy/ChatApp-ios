@@ -50,5 +50,8 @@ class CreateChannelVC: UIViewController {
                 }
             })
         }
+        /*socketService.instance.addChannel(channelName: channelName, channelDescription: channelDescription) { (success) in
+            self.dismiss(animated: true, completion: nil)
+        }*/
     }
 }

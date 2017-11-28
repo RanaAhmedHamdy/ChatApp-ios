@@ -26,6 +26,11 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataChanged(_:)), name: NOTF_DATA_CHANGE_DID_CHANGE, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelAdded(_:)), name: NOTF_CHANNEL_ADDED, object: nil)
+        /*socketService.instance.getChannel { (success) in
+            if success {
+                self.tableView.reloadData()
+            }
+        }*/
     }
     
     @objc func channelAdded(_ notif: Notification) {

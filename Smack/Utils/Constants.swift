@@ -31,3 +31,4 @@ let URL_ADD_CHANNEL = "\(BASE_URL)channel/add"
 
 //notification
 let NOTF_DATA_CHANGE_DID_CHANGE = Notification.Name("notifUserDataChanged")
+let NOTF_CHANNEL_ADDED = Notification.Name("channelAdded")

@@ -7,7 +7,12 @@
 //
 
 import UIKit
+import SocketIO
 
 class socketService: NSObject {
     static let instance = socketService()
+    
+    override init() {
+        super.init()
+    }
 }

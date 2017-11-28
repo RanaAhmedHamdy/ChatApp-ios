@@ -40,10 +40,15 @@ class CreateChannelVC: UIViewController {
         self.spinner.startAnimating()
         
         MessageService.instance.createChannel(channelName: channelName, channelDescription: channelDescription) { (success) in
-            self.spinner.isHidden = true
-            self.spinner.stopAnimating()
-            
-            self.dismiss(animated: true, completion: nil)
+            MessageService.instance.getAllChannels(completion: { (s) in
+                if s {
+                    self.spinner.isHidden = true
+                    self.spinner.stopAnimating()
+                    
+                    self.dismiss(animated: true, completion: nil)
+                    NotificationCenter.default.post(name: NOTF_CHANNEL_ADDED, object: nil)
+                }
+            })
         }
     }
 }

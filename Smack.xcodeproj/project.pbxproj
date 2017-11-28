@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A131DEB51FCD5E6700FB8C44 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131DEB31FCD5E6700FB8C44 /* ProfileVC.swift */; };
 		A131DEB61FCD5E6700FB8C44 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A131DEB41FCD5E6700FB8C44 /* ProfileVC.xib */; };
+		A131DEB91FCD76F500FB8C44 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131DEB81FCD76F500FB8C44 /* MessageService.swift */; };
+		A131DEBB1FCD771200FB8C44 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131DEBA1FCD771200FB8C44 /* Channel.swift */; };
+		A131DEBD1FCD80D700FB8C44 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A131DEBC1FCD80D700FB8C44 /* ChannelCell.swift */; };
 		A13345F51FCBFE69004A3C8E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13345F41FCBFE69004A3C8E /* AuthService.swift */; };
 		A13345F71FCC1E4E004A3C8E /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13345F61FCC1E4E004A3C8E /* DataService.swift */; };
 		A13345F91FCC2DB7004A3C8E /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13345F81FCC2DB7004A3C8E /* AvatarPickerVC.swift */; };
@@ -34,6 +37,9 @@
 		86912A8710B7A6EE74D3CFA8 /* Pods-Smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.debug.xcconfig"; sourceTree = "<group>"; };
 		A131DEB31FCD5E6700FB8C44 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		A131DEB41FCD5E6700FB8C44 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		A131DEB81FCD76F500FB8C44 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		A131DEBA1FCD771200FB8C44 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		A131DEBC1FCD80D700FB8C44 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		A13345F41FCBFE69004A3C8E /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A13345F61FCC1E4E004A3C8E /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A13345F81FCC2DB7004A3C8E /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 			children = (
 				A13345F41FCBFE69004A3C8E /* AuthService.swift */,
 				A13345F61FCC1E4E004A3C8E /* DataService.swift */,
+				A131DEB81FCD76F500FB8C44 /* MessageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -160,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				A13345FC1FCC346A004A3C8E /* AvatarType.swift */,
+				A131DEBA1FCD771200FB8C44 /* Channel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 				A1E791DC1FCAEE1100E560CD /* GradientView.swift */,
 				A13345FA1FCC3097004A3C8E /* AvatarCell.swift */,
 				A13345FE1FCC4157004A3C8E /* CircleImage.swift */,
+				A131DEBC1FCD80D700FB8C44 /* ChannelCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,10 +325,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A131DEB51FCD5E6700FB8C44 /* ProfileVC.swift in Sources */,
+				A131DEBD1FCD80D700FB8C44 /* ChannelCell.swift in Sources */,
 				A1E791E61FCB057800E560CD /* SignupVC.swift in Sources */,
 				A16741361FCAB050003B62D1 /* ChannelVC.swift in Sources */,
 				A13345F91FCC2DB7004A3C8E /* AvatarPickerVC.swift in Sources */,
+				A131DEBB1FCD771200FB8C44 /* Channel.swift in Sources */,
 				A13345FF1FCC4157004A3C8E /* CircleImage.swift in Sources */,
+				A131DEB91FCD76F500FB8C44 /* MessageService.swift in Sources */,
 				A16741341FCAB043003B62D1 /* ChatVC.swift in Sources */,
 				A13345F51FCBFE69004A3C8E /* AuthService.swift in Sources */,
 				A1E791E41FCB02D800E560CD /* LoginVC.swift in Sources */,

@@ -41,4 +41,30 @@ class MessageService {
             }
         }
     }
+    
+    func createChannel(channelName: String, channelDescription: String, completion: @escaping completionHandler){
+        let header = [
+            "Authorization": "Bearer \(AuthService.instance.authToken)",
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
+        let body: [String: Any] = [
+            "name": channelName,
+            "description": channelDescription
+        ]
+        
+        Alamofire.request(URL_ADD_CHANNEL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else {return}
+                let json = try! JSON(data: data)
+                let message = json["message"].stringValue
+                print(message)
+                
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
 }

@@ -40,6 +40,14 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    @IBAction func addChannelBtnPressed(_ sender: Any) {
+        if AuthService.instance.logged_in {
+            let createChannelVC = CreateChannelVC()
+            createChannelVC.modalPresentationStyle = .custom
+            present(createChannelVC, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func unwindtoChannelVC(segue: UIStoryboardSegue) {
         
     }

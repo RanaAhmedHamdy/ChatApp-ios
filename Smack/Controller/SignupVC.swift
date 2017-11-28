@@ -14,6 +14,7 @@ class SignupVC: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var avatarName = "profileDefault"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
@@ -23,6 +24,13 @@ class SignupVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        spinner.isHidden = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SignupVC.handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,6 +47,9 @@ class SignupVC: UIViewController {
     }
     
     @IBAction func createAccountBtnPressed(_ sender: Any) {
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
         guard let name = usernameTxt.text, usernameTxt.text != "" else {return}
         guard let email = emailTxt.text, emailTxt.text != "" else {return}
         guard let pass = passwordTxt.text, passwordTxt.text != "" else {return}
@@ -53,8 +64,13 @@ class SignupVC: UIViewController {
                         
                         AuthService.instance.createUser(userName: name, userEmail: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             if success {
+                                self.spinner.isHidden = true
+                                self.spinner.stopAnimating()
+                                
                                 print(DataService.instance.userName, DataService.instance.avatarName)
                                 self.performSegue(withIdentifier: UNWIND_TO_CHANNEL_VC, sender: nil)
+                                
+                                NotificationCenter.default.post(name: NOTF_DATA_CHANGE_DID_CHANGE, object: nil)
                             }
                         })
                     }
@@ -73,5 +89,7 @@ class SignupVC: UIViewController {
         
         bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
         self.userImage.backgroundColor = bgColor
+        
+        avatarColor = "[\(r), \(g), \(b), 1]"
     }
 }

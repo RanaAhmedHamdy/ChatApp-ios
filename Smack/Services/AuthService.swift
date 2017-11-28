@@ -130,19 +130,42 @@ class AuthService {
         Alamofire.request(URL_ADD_USER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error == nil {
                 guard let data = response.data else {return}
-                let json = try! JSON(data: data)
-                let email = json["email"].stringValue
-                let name = json["name"].stringValue
-                let avatarName = json["avatarName"].stringValue
-                let avatarColor = json["avatarColor"].stringValue
-                let id = json["_id"].stringValue
+                self.setUserInfo(data: data)
                 
-                DataService.instance.setUserData(id: id, avatarName: avatarName, avatarColor: avatarColor, userName: name, userEmail: email)
                 completion(true)
             } else {
                 completion(false)
                 debugPrint(response.result.error as Any)
             }
         }
+    }
+    
+    func getUserDataByEmail(completion: @escaping completionHandler) {
+        let header = [
+            "Authorization": "Bearer \(authToken)",
+        ]
+        
+        Alamofire.request("\(URL_GET_USER_DATA_BY_EMAIL)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else {return}
+                self.setUserInfo(data: data)
+                
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    func setUserInfo(data: Data) {
+        let json = try! JSON(data: data)
+        let email = json["email"].stringValue
+        let name = json["name"].stringValue
+        let avatarName = json["avatarName"].stringValue
+        let avatarColor = json["avatarColor"].stringValue
+        let id = json["_id"].stringValue
+        
+        DataService.instance.setUserData(id: id, avatarName: avatarName, avatarColor: avatarColor, userName: name, userEmail: email)
     }
 }

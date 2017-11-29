@@ -27,10 +27,10 @@ class ChatVC: UIViewController {
                     //NotificationCenter.default.post(name: NOTF_DATA_CHANGE_DID_CHANGE, object: nil)
                 }
             })
-        }
-        
-        MessageService.instance.getAllChannels { (success) in
             
+            MessageService.instance.getAllChannels { (success) in
+                
+            }
         }
     }
 }
